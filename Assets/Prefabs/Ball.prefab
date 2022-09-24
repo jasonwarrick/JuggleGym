@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b8d11b66130bf4daa75605cb0abf4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 400
+  bounceForce: 550
+  scoreHandler: {fileID: 6013805752322850501, guid: 6b9eb9c685565bc47baeb9a48037cd66, type: 3}
 --- !u!1 &4955967563925418565
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,4 +166,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.65548265
+  m_Radius: 0.5
