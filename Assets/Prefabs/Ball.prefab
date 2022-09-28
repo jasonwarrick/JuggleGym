@@ -44,8 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b8d11b66130bf4daa75605cb0abf4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceForce: 550
-  scoreHandler: {fileID: 6013805752322850501, guid: 6b9eb9c685565bc47baeb9a48037cd66, type: 3}
+  bounceForce: 600
 --- !u!1 &4955967563925418565
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,6 +57,7 @@ GameObject:
   - component: {fileID: 4955967563925418561}
   - component: {fileID: 4955967563925418566}
   - component: {fileID: 4955967563925418567}
+  - component: {fileID: 1385904621940891167}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -98,7 +98,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,3 +167,34 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1385904621940891167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955967563925418565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.5015647, y: 0.07527614, z: 0}
+  - {x: -0.42012668, y: -0.2558204, z: 0}
+  - {x: -0.18491006, y: -0.45743465, z: 0}
+  - {x: 0.2071178, y: -0.4742359, z: 0}
+  - {x: 0.4343599, y: -0.2607478, z: 0}
+  - {x: 0.5039389, y: 0.05220139, z: 0}
+  - {x: 0.3783561, y: 0.35035396, z: 0}
+  - {x: 0.03350544, y: 0.5058335, z: 0}
+  - {x: -0.37835592, y: 0.3559544, z: 0}
+  m_ShapePathHash: -1419256466
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 47906

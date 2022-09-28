@@ -7,6 +7,10 @@ public class MainMenu : MonoBehaviour
 {
     int gameIndex = 1;
 
+    void Awake() {
+        Application.targetFrameRate = 60;
+    }
+
     public void PlayGame() {
         SceneManager.LoadScene(gameIndex);
     }

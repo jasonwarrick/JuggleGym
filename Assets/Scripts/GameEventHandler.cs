@@ -20,6 +20,7 @@ public class GameEventHandler : MonoBehaviour
     
     // Start is called before the first frame update
     void Start() {
+        Application.targetFrameRate = 60;
         Pause(false);
         ended = false;
         endUI.SetActive(false);

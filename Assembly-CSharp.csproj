@@ -39,10 +39,10 @@
      <Compile Include="Assets\Scripts\ScoreHandler.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\KillPlane.cs" />
+     <Compile Include="Assets\Scripts\GameEventHandler.cs" />
      <Compile Include="Assets\Scripts\TouchController.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\Ball.cs" />
-     <Compile Include="Assets\Scripts\GameEventHandler.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -720,6 +720,9 @@
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
         <HintPath>C:\Users\Jason\Documents\JuggleGym\Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.InputSystem">
+        <HintPath>C:\Users\Jason\Documents\JuggleGym\Library\ScriptAssemblies\Unity.InputSystem.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

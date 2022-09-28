@@ -13,7 +13,7 @@ public class ScoreHandler : MonoBehaviour
 
     int score = 0;
     public int Score { get { return score; } }
-    int health = 3;
+    [SerializeField] int health = 3;
     // int mainMenuIndex = 0;
 
     void Awake() {
