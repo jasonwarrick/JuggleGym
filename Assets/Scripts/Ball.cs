@@ -16,7 +16,7 @@ public class Ball : MonoBehaviour
     }
 
     public void Hit(Vector2 touchPos) {
-        transform.parent.gameObject.GetComponent<Spawner>().Hit();
+        transform.parent.gameObject.GetComponent<Spawner>().Hit(rb.position.y);
         
         rb.velocity = new Vector2(rb.velocity.x, 0f); // Reset the y-velocity that way each bounce is consistent
 

@@ -31,8 +31,8 @@ public class Spawner : MonoBehaviour
         ballInstance.transform.parent = parentGameObject.transform; // Spawn every ball as a child of BallSpawner
     }
 
-    public void Hit() {
-        scoreHandler.GetComponent<ScoreHandler>().IncreaseScore();
+    public void Hit(float yPos) {
+        scoreHandler.GetComponent<ScoreHandler>().IncreaseScore(yPos);
     }
 
     public void Die() {

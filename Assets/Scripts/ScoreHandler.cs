@@ -12,6 +12,7 @@ public class ScoreHandler : MonoBehaviour
     [SerializeField] GameObject gameEventHandler;
 
     int score = 0;
+    [SerializeField] float scoreFactor;
     public int Score { get { return score; } }
     [SerializeField] int health = 3;
     // int mainMenuIndex = 0;
@@ -21,9 +22,9 @@ public class ScoreHandler : MonoBehaviour
         UpdateText();
     }
 
-    public void IncreaseScore() {
-        score += 25;
-        Debug.Log(score);
+    public void IncreaseScore(float yPos) {
+        yPos += 4; // Makes the lowest point 0 instead of a negative
+        score += 25 - (int) (yPos * scoreFactor); // The lower the ball is when it is hit, the less is subtracted from the score
 
         UpdateText();
     }
