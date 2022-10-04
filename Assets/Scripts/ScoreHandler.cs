@@ -4,17 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class ScoreHandler : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] GameObject gameEventHandler;
+    [SerializeField] Light2D redLight;
 
     int score = 0;
     [SerializeField] float scoreFactor;
     public int Score { get { return score; } }
-    [SerializeField] int health = 3;
+    float health = 100;
+    [SerializeField] float regenRate;
+    [SerializeField] float damageValue;
     // int mainMenuIndex = 0;
 
     void Awake() {
@@ -29,10 +33,19 @@ public class ScoreHandler : MonoBehaviour
         UpdateText();
     }
 
-    public void DamageHealth() {
-        health -= 1;
+    void FixedUpdate() {
+        if (health < 100) {
+            health += regenRate;
+            redLight.intensity = (float) -((health / 33.3f) - 3f); // Normalize the health so it ranges from 0 to 3, and then invert it so it increases
+        }
 
-        if (health == 0) {
+        UpdateText();
+    }
+
+    public void DamageHealth() {
+        health -= damageValue;
+
+        if (health <= 0) {
             gameEventHandler.GetComponent<GameEventHandler>().EndGame();
         }
 
@@ -45,8 +58,6 @@ public class ScoreHandler : MonoBehaviour
             DamageHealth();
             score = 0;
         }
-
-        UpdateText();
     }
 
     private void UpdateText() {

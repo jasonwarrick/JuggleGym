@@ -48,7 +48,7 @@ public class Spawner : MonoBehaviour
             timer = 0;
             ResetSpawnTime();
 
-            if (ballCounter <= ballLimit) { // Only allow 5 balls on screen at once
+            if (ballCounter < ballLimit) { // Only allow 5 balls on screen at once
                 SpawnBall();
             }
         }
