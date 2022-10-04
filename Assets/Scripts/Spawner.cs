@@ -9,7 +9,10 @@ public class Spawner : MonoBehaviour
     [SerializeField] GameObject scoreHandler;
     
     float topOfScreen = 6f;
-    float spawnTime = 5f;
+    float spawnTime = 1f;
+
+    [SerializeField] float upperSpawnTime;
+    [SerializeField] float lowerSpawnTime;
     float timer;
     int ballCounter;
     [SerializeField] int ballLimit = 5;
@@ -17,16 +20,16 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start() {
         ballCounter = 0;
-        ResetSpawnTime();
+        spawnTime = 1f; // The first ball is always dropped after one second
     }
 
     void ResetSpawnTime() {
-        spawnTime = Random.Range(1f, 5f);
+        spawnTime = Random.Range(lowerSpawnTime, upperSpawnTime);
     }
 
     void SpawnBall() {
         ballCounter++;
-        Vector3 position = new Vector3(Random.Range(-8f, 8f), topOfScreen, 0);
+        Vector3 position = new Vector3(Random.Range(-8f, 8f), topOfScreen, 0); // Randomize horizontal position
         GameObject ballInstance = Instantiate(ball, position, Quaternion.identity);
         ballInstance.transform.parent = parentGameObject.transform; // Spawn every ball as a child of BallSpawner
     }

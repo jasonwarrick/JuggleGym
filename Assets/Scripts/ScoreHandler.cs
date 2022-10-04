@@ -9,7 +9,6 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class ScoreHandler : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] GameObject gameEventHandler;
     [SerializeField] Light2D redLight;
 
@@ -62,6 +61,5 @@ public class ScoreHandler : MonoBehaviour
 
     private void UpdateText() {
         scoreText.text = score.ToString();
-        healthText.text = health.ToString();
     }
 }
