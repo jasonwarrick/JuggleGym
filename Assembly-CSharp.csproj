@@ -41,6 +41,7 @@
      <Compile Include="Assets\Scripts\ScoreHandler.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
      <Compile Include="Assets\Scripts\KillPlane.cs" />
+     <Compile Include="Assets\Scripts\Wall.cs" />
      <Compile Include="Assets\Scripts\GameEventHandler.cs" />
      <Compile Include="Assets\Scripts\TouchController.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />

@@ -14,6 +14,8 @@ public class ScoreHandler : MonoBehaviour
 
     int score = 0;
     [SerializeField] float scoreFactor;
+    [SerializeField] int baseScore;
+    [SerializeField] int minimumScore;
     public int Score { get { return score; } }
     float health = 100;
     [SerializeField] float regenRate;
@@ -27,7 +29,15 @@ public class ScoreHandler : MonoBehaviour
 
     public void IncreaseScore(float yPos) {
         yPos += 4; // Makes the lowest point 0 instead of a negative
-        score += 25 - (int) (yPos * scoreFactor); // The lower the ball is when it is hit, the less is subtracted from the score
+
+        int scoreChange = baseScore - (int) (yPos * scoreFactor); // The higher position the ball is when it is tapped, the more is subtracted from your score
+
+        if (scoreChange > minimumScore) {
+            score += scoreChange; // The lower the ball is when it is hit, the less is subtracted from the score
+        } else { // Add the minimum score if it was going to fall below it
+            score += minimumScore;
+        }
+        
 
         UpdateText();
     }
