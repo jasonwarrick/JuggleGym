@@ -6,6 +6,8 @@ public class Ball : MonoBehaviour
 {
     [SerializeField] float bounceForce;
 
+    [SerializeField] AudioSource ballHit;
+
     CircleCollider2D ballCollider;
     Rigidbody2D rb;
 
@@ -13,6 +15,10 @@ public class Ball : MonoBehaviour
     void Start() {
         ballCollider = GetComponentInChildren<CircleCollider2D>();
         rb = GetComponentInChildren<Rigidbody2D>();
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        ballHit.Play();
     }
 
     public void Hit(Vector2 touchPos) {

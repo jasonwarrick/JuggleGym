@@ -145,3 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawner: {fileID: 0}
+  killAudio: {fileID: 0}
+  lazerAudio: {fileID: 0}
+  deathParticles: {fileID: 149755962682786788, guid: f0fe91ba6665b574c9d302490131de1c, type: 3}
