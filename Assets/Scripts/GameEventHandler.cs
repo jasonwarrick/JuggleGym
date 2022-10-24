@@ -12,6 +12,7 @@ public class GameEventHandler : MonoBehaviour
     [SerializeField] GameObject gameUI;
     [SerializeField] TextMeshProUGUI finalScoreText;
     [SerializeField] GameObject scoreHandler;
+    [SerializeField] GameObject touchController;
     
     bool paused;
     bool ended;
@@ -24,6 +25,7 @@ public class GameEventHandler : MonoBehaviour
         Pause(false);
         ended = false;
         endUI.SetActive(false);
+        touchController.SetActive(true);
     }
 
     public void Pause(bool pausing) {
@@ -42,10 +44,11 @@ public class GameEventHandler : MonoBehaviour
     public void EndGame() {
         finalScoreText.text = "Score: " + scoreHandler.GetComponent<ScoreHandler>().Score.ToString();
         ended = true;
-        Time.timeScale = 0;
+        Time.timeScale = 0.01f;
         pauseUI.SetActive(false);
         endUI.SetActive(true);
         gameUI.SetActive(false);
+        touchController.SetActive(false);
     }
 
     public void MenuButton(int buttonCode) {

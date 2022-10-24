@@ -2146,6 +2146,7 @@ MonoBehaviour:
   gameUI: {fileID: 457215190}
   finalScoreText: {fileID: 1676646681}
   scoreHandler: {fileID: 1261212483}
+  touchController: {fileID: 197320880}
 --- !u!1 &1776246467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2676,7 +2677,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d9844047dc26db943a649c126f97010a, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.71
+  m_Volume: 0.459
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2772,7 +2773,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 915bda37feb236246972e539e9713adc, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.683
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
