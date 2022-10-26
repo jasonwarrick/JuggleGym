@@ -11,6 +11,7 @@ public class GameEventHandler : MonoBehaviour
     [SerializeField] GameObject endUI;
     [SerializeField] GameObject gameUI;
     [SerializeField] TextMeshProUGUI finalScoreText;
+    [SerializeField] TextMeshProUGUI highScoreText;
     [SerializeField] GameObject scoreHandler;
     [SerializeField] GameObject touchController;
     
@@ -42,13 +43,16 @@ public class GameEventHandler : MonoBehaviour
     }
 
     public void EndGame() {
+        highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
         finalScoreText.text = "Score: " + scoreHandler.GetComponent<ScoreHandler>().Score.ToString();
+
         ended = true;
-        Time.timeScale = 0.01f;
         pauseUI.SetActive(false);
         endUI.SetActive(true);
         gameUI.SetActive(false);
         touchController.SetActive(false);
+
+        Time.timeScale = 0.01f;
     }
 
     public void MenuButton(int buttonCode) {

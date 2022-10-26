@@ -55,21 +55,33 @@ public class ScoreHandler : MonoBehaviour
         health -= damageValue;
 
         if (health <= 0) {
+            if (score > GetHighScore()) {
+                SetHighScore(score);
+            }
+
             gameEventHandler.GetComponent<GameEventHandler>().EndGame();
         }
 
         UpdateText();
     }
 
-    public void DecreaseScore() {
-        score -= 25;
-        if (score < 0) {
-            DamageHealth();
-            score = 0;
-        }
-    }
+    // public void DecreaseScore() {
+    //     score -= 25;
+    //     if (score < 0) {
+    //         DamageHealth();
+    //         score = 0;
+    //     }
+    // }
 
     private void UpdateText() {
         scoreText.text = score.ToString();
+    }
+
+    int GetHighScore() {
+        return PlayerPrefs.GetInt("HighScore", 0);
+    }
+
+    void SetHighScore(int score) {
+        PlayerPrefs.SetInt("HighScore", score);
     }
 }
