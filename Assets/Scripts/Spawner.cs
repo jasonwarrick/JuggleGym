@@ -76,4 +76,12 @@ public class Spawner : MonoBehaviour
         
         difficultyTimer = 0;
     }
+
+    public void EndGame() { // Stops the spawning of all balls, and destroys all current ones
+        ballCounter = 100;
+
+        foreach (Transform child in gameObject.transform) {
+            Destroy(child.gameObject);
+        }
+    }
 }

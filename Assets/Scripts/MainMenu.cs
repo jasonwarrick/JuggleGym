@@ -9,12 +9,14 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI soundText;
     [SerializeField] AudioMixer audioMixer;
+    [SerializeField] TextMeshProUGUI highScore;
 
 
     int gameIndex = 1;
 
     void Awake() {
         Application.targetFrameRate = 60;
+        highScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
         UpdateSoundText();
     }
 

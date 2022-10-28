@@ -2167,6 +2167,7 @@ MonoBehaviour:
   pauseUI: {fileID: 1441894688}
   endUI: {fileID: 352113961}
   gameUI: {fileID: 457215190}
+  spawner: {fileID: 44585077}
   finalScoreText: {fileID: 1676646681}
   highScoreText: {fileID: 2138262697}
   soundText1: {fileID: 1146438485}

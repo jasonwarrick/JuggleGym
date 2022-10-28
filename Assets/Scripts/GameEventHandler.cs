@@ -11,6 +11,7 @@ public class GameEventHandler : MonoBehaviour
     [SerializeField] GameObject pauseUI;
     [SerializeField] GameObject endUI;
     [SerializeField] GameObject gameUI;
+    [SerializeField] GameObject spawner;
     [SerializeField] TextMeshProUGUI finalScoreText;
     [SerializeField] TextMeshProUGUI highScoreText;
     [SerializeField] TextMeshProUGUI soundText1;
@@ -20,7 +21,6 @@ public class GameEventHandler : MonoBehaviour
     [SerializeField] AudioMixer audioMixer;
     
     bool paused;
-    bool ended;
     int menuIndex = 0;
     int gameIndex = 1;
     
@@ -28,7 +28,6 @@ public class GameEventHandler : MonoBehaviour
     void Start() {
         Application.targetFrameRate = 60;
         Pause(false);
-        ended = false;
         endUI.SetActive(false);
         touchController.SetActive(true);
         UpdateSoundText();
@@ -48,10 +47,11 @@ public class GameEventHandler : MonoBehaviour
     }
 
     public void EndGame() {
+        spawner.GetComponent<Spawner>().EndGame();
+        
         highScoreText.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
         finalScoreText.text = "Score: " + scoreHandler.GetComponent<ScoreHandler>().Score.ToString();
 
-        ended = true;
         pauseUI.SetActive(false);
         endUI.SetActive(true);
         gameUI.SetActive(false);
