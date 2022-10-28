@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 using TMPro;
 
 public class GameEventHandler : MonoBehaviour
@@ -12,8 +13,11 @@ public class GameEventHandler : MonoBehaviour
     [SerializeField] GameObject gameUI;
     [SerializeField] TextMeshProUGUI finalScoreText;
     [SerializeField] TextMeshProUGUI highScoreText;
+    [SerializeField] TextMeshProUGUI soundText1;
+    [SerializeField] TextMeshProUGUI soundText2;
     [SerializeField] GameObject scoreHandler;
     [SerializeField] GameObject touchController;
+    [SerializeField] AudioMixer audioMixer;
     
     bool paused;
     bool ended;
@@ -27,6 +31,7 @@ public class GameEventHandler : MonoBehaviour
         ended = false;
         endUI.SetActive(false);
         touchController.SetActive(true);
+        UpdateSoundText();
     }
 
     public void Pause(bool pausing) {
@@ -60,8 +65,9 @@ public class GameEventHandler : MonoBehaviour
             case 0: // Resume game
                 Pause(false);
                 break;
-            
+
             case 1: // Options
+                ToggleSound();
                 break;
 
             case 2: // Main menu
@@ -77,5 +83,27 @@ public class GameEventHandler : MonoBehaviour
         }
 
         Debug.Log(buttonCode);
+    }
+
+    void ToggleSound() {
+        if (PlayerPrefs.GetInt("SFX", 0) == 0) { // Toggle audio on
+            PlayerPrefs.SetInt("SFX", 1);
+            audioMixer.SetFloat("SFXAudio", 1); // Audio code taken from: https://www.youtube.com/watch?time_continue=218&v=C1gCOoDU29M&feature=emb_title
+        } else { // Toggle audio off
+            audioMixer.SetFloat("SFXAudio", -80);
+            PlayerPrefs.SetInt("SFX", 0);
+        }
+
+        UpdateSoundText();
+    }
+
+    void UpdateSoundText() {
+        if (PlayerPrefs.GetInt("SFX", 0) == 1) { // Toggle audio on
+            soundText1.text = "Sound ON";
+            soundText2.text = "Sound ON";
+        } else { // Toggle audio off
+            soundText1.text = "Sound OFF";
+            soundText2.text = "Sound OFF";
+        }
     }
 }
