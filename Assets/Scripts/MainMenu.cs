@@ -20,19 +20,26 @@ public class MainMenu : MonoBehaviour
     void Awake() {
         Application.targetFrameRate = 60;
         highScore.text = "High Score: " + PlayerPrefs.GetInt("HighScore", 0).ToString();
-        UpdateSoundText();
+    }
+
+    void Start() {
+        SoundSetUp(); // Set up the audio levels in start, as it wasn't working properly in awake
     }
 
     public void PlayGame() {
         SceneManager.LoadScene(gameIndex);
     }
 
-    void SoundSetUp() {
-        if (PlayerPrefs.GetInt("SFX", 0) == 0) { // Toggle audio on
-            audioMixer.SetFloat("SFXAudio", 1); // Audio code taken from: https://www.youtube.com/watch?time_continue=218&v=C1gCOoDU29M&feature=emb_title
+    void SoundSetUp() { // Separate function that sets the audio levels to the player prefs without changing them
+        if (PlayerPrefs.GetInt("SFX", 0) == 0) {
+            Debug.Log("Off");
+            audioMixer.SetFloat("SFXAudio", -80); // Audio code taken from: https://www.youtube.com/watch?time_continue=218&v=C1gCOoDU29M&feature=emb_title
         } else { // Toggle audio off
-            audioMixer.SetFloat("SFXAudio", -80);
+            Debug.Log("On");
+            audioMixer.SetFloat("SFXAudio", 1);
         }
+
+        UpdateSoundText();
     }
 
     public void Options() {
