@@ -185,7 +185,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 321247457}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -329,6 +329,8 @@ MonoBehaviour:
   soundText: {fileID: 2109743614}
   audioMixer: {fileID: 24100000, guid: 677a18eb16745b148ba21c6bebd51123, type: 2}
   highScore: {fileID: 1238255868}
+  mainCanvas: {fileID: 1102623385}
+  howToCanvas: {fileID: 321247453}
 --- !u!4 &240449661
 Transform:
   m_ObjectHideFlags: 0
@@ -435,8 +437,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1559417910}
-  - {fileID: 1729113371}
   - {fileID: 188251668}
+  - {fileID: 1729113371}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -523,6 +525,7 @@ GameObject:
   - component: {fileID: 954301770}
   - component: {fileID: 954301769}
   - component: {fileID: 954301768}
+  - component: {fileID: 954301771}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -595,6 +598,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &954301771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 954301767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!224 &1097938148 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7263971639470783401, guid: 316d916feaebb6a418d10777ec88e90c, type: 3}
@@ -1492,7 +1528,7 @@ PrefabInstance:
       objectReference: {fileID: 240449660}
     - target: {fileID: 7263971639470783400, guid: 316d916feaebb6a418d10777ec88e90c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGame
+      value: HowTo
       objectReference: {fileID: 0}
     - target: {fileID: 7263971639470783400, guid: 316d916feaebb6a418d10777ec88e90c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1508,7 +1544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263971639470783401, guid: 316d916feaebb6a418d10777ec88e90c, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7263971639470783401, guid: 316d916feaebb6a418d10777ec88e90c, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1610,7 +1646,7 @@ PrefabInstance:
       objectReference: {fileID: 240449660}
     - target: {fileID: 7263971639470783400, guid: 316d916feaebb6a418d10777ec88e90c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PlayGame
+      value: HowTo
       objectReference: {fileID: 0}
     - target: {fileID: 7263971639470783400, guid: 316d916feaebb6a418d10777ec88e90c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

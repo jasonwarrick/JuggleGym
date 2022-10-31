@@ -11,7 +11,10 @@ public class MainMenu : MonoBehaviour
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] TextMeshProUGUI highScore;
 
+    [SerializeField] GameObject mainCanvas;
+    [SerializeField] GameObject howToCanvas;
 
+    bool howTo = false;
     int gameIndex = 1;
 
     void Awake() {
@@ -22,6 +25,14 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame() {
         SceneManager.LoadScene(gameIndex);
+    }
+
+    void SoundSetUp() {
+        if (PlayerPrefs.GetInt("SFX", 0) == 0) { // Toggle audio on
+            audioMixer.SetFloat("SFXAudio", 1); // Audio code taken from: https://www.youtube.com/watch?time_continue=218&v=C1gCOoDU29M&feature=emb_title
+        } else { // Toggle audio off
+            audioMixer.SetFloat("SFXAudio", -80);
+        }
     }
 
     public void Options() {
@@ -46,5 +57,11 @@ public class MainMenu : MonoBehaviour
 
     public void ExitGame() {
         Application.Quit();
+    }
+
+    public void HowTo() { // Alternates between tutorial and main menu screens
+        howTo = !howTo;
+        mainCanvas.SetActive(!howTo);
+        howToCanvas.SetActive(howTo);
     }
 }
